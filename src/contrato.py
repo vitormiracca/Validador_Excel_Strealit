@@ -8,7 +8,10 @@ class Categoria_Enum(str, Enum):
     equipamentos = "equipamentos" 
 
 class Compras(BaseModel):
-    """Modelo de Dados para o excel de Compras"""
+    """
+    Modelo de Dados para o excel de Compras
+    O excel a ser validado, deverá possuir a estrutura definida aqui para que a passe na validação.
+    """
 
     Data: datetime
     Fornecedor: str
