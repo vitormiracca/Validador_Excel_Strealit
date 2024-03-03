@@ -7,7 +7,7 @@ import subprocess
 
 @pytest.fixture
 def driver():
-    # Inicia o Streamlit em background
+    # Streamlit em background
     process = subprocess.Popen(["streamlit", "run", "src/main.py"])
     options = Options()
     options.headless = True
@@ -20,9 +20,14 @@ def driver():
     driver.quit()
     process.kill()
 
-def test_app(driver):
+def test_open_title(driver):
     # Verificar se a página abre
     driver.get("http://localhost:8501")
-    sleep(5)
+    # Verifica se o titulo de página é
+    sleep(2)
+    # Capturar o título da página
     page_title = driver.title
-    assert page_title == "Upload Compras - Validação"
+
+    # Verificar se o título da página é o esperado
+    expected_title = "Upload Compras - Validação"  # Substitua com o título real esperado
+    assert page_title == expected_title

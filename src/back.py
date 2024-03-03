@@ -3,6 +3,17 @@ from contrato import Compras
 from dotenv import load_dotenv
 import os
 
+# Variáveis de ambiente
+load_dotenv(".env")
+POSTGRES_USER=os.getenv('POSTGRES_USER')
+POSTGRES_PASSWORD=os.getenv('POSTGRES_PASSWORD')
+POSTGRES_HOST=os.getenv('POSTGRES_HOST')
+POSTGRES_PORT=os.getenv('POSTGRES_PORT')
+POSTGRES_DB=os.getenv('POSTGRES_DB')
+
+# Cria string de conexão para parametro do pandas
+DATABASE_URL = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
+
 def processa_excel(arquivo_carregado):
     try:
         df = pd.read_excel(arquivo_carregado)
@@ -21,9 +32,12 @@ def processa_excel(arquivo_carregado):
                 errors.append(message)
                 # raise ValueError(message)
 
-        return True, errors
+        return df,True, errors
 
     except ValueError as ve:
-        return False, str(ve)
+        return df, False, str(ve)
     except Exception as e:
-        return False, f"Erro inesperado: {str(e)}"
+        return df, False, f"Erro inesperado: {str(e)}"
+    
+def excel_to_sql(df):
+    df.to_sql('compras', con=DATABASE_URL, if_exists='replace', index=False)
