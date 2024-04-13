@@ -4,8 +4,8 @@ Projeto com objetivo de aprendizado de novas tecnologias que podem ser úteis no
 
 ### Desafio / Objetivo:
 
-Criar uma aplicação, com interface, para que usuários de uma empresa (neste case, um possível departamento de compras) possam inoutar seus controles de registros no banco de dados análitico da empresa, para que estes possam ser utilzidos em análises e relatórios posteriores.
-A ideia é possui uma aplicação online, para que todos possam acessar a inputar seus arquivos excel. Entretanto, para garantir a integridade e qualidade dos dados, estes arquivos passaram por uma varredura, e só poderão sem inseridos no banco de dados se estiverem de acordo com o definido pelo negócio, caso contrário, a aplicação orientará o usuário a corrigir o seu controle.
+Criar uma aplicação, com interface, para que usuários de uma empresa (neste case, um possível departamento de compras) possam inputar seus controles de registros no banco de dados análitico da empresa, para que estes possam ser utilzidos em análises e relatórios posteriores.
+A ideia é possuir uma aplicação online, para que todos possam acessar a inputar seus arquivos excel. Entretanto, para garantir a integridade e qualidade dos dados, estes arquivos passaram por uma varredura, e só poderão sem inseridos no banco de dados se estiverem de acordo com o definido pelo negócio, caso contrário, a aplicação orientará o usuário a corrigir o seu controle.
 
 ### Arquitetura e Tecnologias:
 
@@ -26,10 +26,7 @@ E por fim, utilizamos o serviço do Sentry para garantir que a aplicação estej
 
 ### A aplicação:
 
-Este projeto, por mais que simples, está em Produção para teste completo, desde a interface do Streamlit, testes de upload de arquivos com schema errado para verificação dos erros, a inserção dos dados em banco de dados produtivo quando o schema for validado, como a observabildiade da aplicação.
-
-Para acessar, basta entrar em:
-https://validadorexcelstrealit.streamlit.app/
+Este projeto simples, mas Produtivo, para teste completo desde a interface do Streamlit, testes de upload de arquivos com schema errado para verificação dos erros, a inserção dos dados em banco de dados produtivo quando o schema for validado, como a observabildiade da aplicação.
 
 A seguir alguns prints da aplicação e as tecnologias utilizadas:
 
